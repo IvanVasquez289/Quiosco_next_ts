@@ -10,6 +10,7 @@ import { toast } from "react-toastify"
 const OrderSummary = () => {
   const order = useStore((state) => state.order)
   const total = useMemo(()=> order.reduce((acc, itm) => acc + itm.subtotal, 0), [order])
+  const resetOrder = useStore((state) => state.resetOrder)
 
   const handleCreateOrder = async (formData: FormData) => {
     const data = {
@@ -32,7 +33,11 @@ const OrderSummary = () => {
       response.errors.forEach((error) => {
         toast.error(error.message)
       })
+      return
     }
+
+    resetOrder()
+    toast.success("Pedido realizado con exito")
   }
   return (
     <aside className="md:w-64 lg:w-96 p-5 lg:h-screen lg:overflow-y-scroll">
