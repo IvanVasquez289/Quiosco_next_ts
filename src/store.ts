@@ -6,7 +6,8 @@ interface Store {
     order: OrderItem[],
     addToOrder: (product: Product) => void,
     incrementQuantity: (id: number) => void,
-    decrementQuantity: (id: number) => void
+    decrementQuantity: (id: number) => void,
+    removeItem: (id: number) => void
 }
 
 const MIN_QUANTITY = 1;
@@ -65,5 +66,9 @@ export const useStore = create<Store>((set,get)=>({
             return itm
         })
         set({order: updateOrder})
+    },
+    removeItem: (id: number) => {
+        const updatedOrder = get().order.filter(itm => itm.id !== id)
+        set({order: updatedOrder})
     }
 }))
