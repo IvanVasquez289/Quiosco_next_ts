@@ -1,4 +1,4 @@
-import { Order, OrderProducts, Product } from "@prisma/client";
+import {  Order, OrderProducts, Product } from "@prisma/client";
 
 
 export type OrderItem = Pick<Product, "id" | "name" | "price" > & {
@@ -11,3 +11,7 @@ export type OrderWithProducts = Order & {
         product: Product
     })[]
 }
+
+// export type ProductsWithCategory = Product & {
+//     category: Category
+// }
