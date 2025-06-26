@@ -1,7 +1,9 @@
+import ProductSearchForm from "@/components/products/ProductSearchForm"
 import ProductsPagination from "@/components/products/ProductsPagination"
 import ProductTable from "@/components/products/ProductTable"
 import Heading from "@/components/ui/Heading"
 import { prisma } from "@/src/lib/prisma"
+import Link from "next/link"
 import { redirect } from "next/navigation"
 
 
@@ -36,6 +38,15 @@ const ProductPage = async ({searchParams}: {searchParams: {page: string}}) => {
   return (
     <>
       <Heading>Admnistrar Productos</Heading>
+      <div className="flex flex-col  md:flex-row md:items-center md:justify-between gap-5">
+        <Link
+          href={"/admin/products/new"}
+          className="bg-amber-500 w-full lg:w-auto px-10 py-3 text-xl text-center font-bold cursor-pointer"
+        >
+          Crear Producto
+        </Link>
+        <ProductSearchForm/>
+      </div>
       <ProductTable products={products}/>
       <ProductsPagination page={+page} totalPages={totalPages}/>
     </>
