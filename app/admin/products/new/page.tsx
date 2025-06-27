@@ -1,7 +1,15 @@
+import AddProductForm from "@/components/products/AddProductForm"
+import ProductForm from "@/components/products/ProductForm"
+import Heading from "@/components/ui/Heading"
 
 const NewProductPage = () => {
   return (
-    <div>NewProductPage</div>
+    <>
+      <Heading>Crear Producto</Heading>
+      <AddProductForm>
+        <ProductForm/>
+      </AddProductForm>
+    </>
   )
 }
 
