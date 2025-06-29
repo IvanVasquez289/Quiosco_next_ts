@@ -12,7 +12,7 @@ const CategoryIcon = ({category}: CategoryIconProps) => {
   return (
     <Link 
         href={`/order/${category.slug}`}
-        className={`${params.category === category.slug && "bg-amber-500"} flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b hover:bg-amber-500 transition-colors`}
+        className={`${params.category === category.slug && "bg-amber-500"} flex items-center gap-4 w-full border-t border-gray-200 p-2 last-of-type:border-b hover:bg-amber-500 transition-colors`}
     >
         <div className="w-16 h-16 relative">
             <Image 

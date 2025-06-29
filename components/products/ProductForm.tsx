@@ -1,4 +1,5 @@
 import { prisma } from "@/src/lib/prisma"
+import ImageUpload from "./ImageUpload"
 
 
 const getCategories = async () => {
@@ -51,6 +52,7 @@ export default async function ProductForm() {
                     ))}
                 </select>
             </div>
+            <ImageUpload />
         </>
     )
 }
