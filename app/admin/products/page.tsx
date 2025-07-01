@@ -21,7 +21,7 @@ const getProducts = async (pageSize: number, skip: number) => {
 }
 
 export type ProductsWithCategory = Awaited<ReturnType<typeof getProducts>>
-const ProductPage = async ({searchParams}: {searchParams: {page: string}}) => {
+const ProductPage = async ({searchParams}: {searchParams: Promise<{page: string}>}) => {
   const {page = "1"} = await searchParams
   const pageSize = 10
   const skip = (+page - 1) * pageSize

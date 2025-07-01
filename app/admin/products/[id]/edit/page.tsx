@@ -18,7 +18,7 @@ const getProductById = async (id: number) => {
     return product
 }
 
-const EditPage = async ({params}: {params: {id: string}}) => {
+const EditPage = async ({params}: {params: Promise<{id: string}>}) => {
   const {id} = await params
   const product = await getProductById(+id)
   return (

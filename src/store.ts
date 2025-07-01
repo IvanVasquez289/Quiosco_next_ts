@@ -16,7 +16,6 @@ const MAX_QUANTITY = 5;
 export const useStore = create<Store>((set,get)=>({
     order: [],
     addToOrder: (product: Product) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const {categoryId, image, ...data} = product;
         const productExists = get().order.some(item => item.id === product.id)
         let updatedOrder: OrderItem[] = [];

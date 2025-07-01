@@ -14,7 +14,7 @@ const getProducts = async (category: string) => {
 
   return products
 }
-const OrderPage = async ({params}: {params: {category: string}}) => {
+const OrderPage = async ({params}: {params: Promise<{category: string}>}) => {
   const {category} = await params
   const products = await getProducts(category)
   return (
